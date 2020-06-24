@@ -129,7 +129,11 @@
                                 <li>
                                     <a href="{{ url('top-banner') }}" class="auto"> <i class="i i-dot"></i> <span>Top Banner</span> </a>
                                 </li>
+                                
 
+                                <li>
+                                    <a href="{{ url('page-banner') }}" class="auto"> <i class="i i-dot"></i> <span>Page Banner</span> </a>
+                                </li>
                                 
 
                                 <li>

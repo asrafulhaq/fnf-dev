@@ -74,6 +74,11 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::get('subscriber', 'HomePageManagement@subscriberView');
 	Route::post('subscriber-upload', 'HomePageManagement@subscriberUpload');
 
+	Route::get('page-banner', 'HomePageManagement@pageBannerView');
+	Route::post('page-banner-upload', 'HomePageManagement@pageBannerUpload');
+
+
+
 
 	// For shop Page
 	Route::get('/cart', 'CartManagement@index');

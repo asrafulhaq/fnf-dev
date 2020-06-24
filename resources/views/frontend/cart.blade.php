@@ -3,6 +3,8 @@
 
 @section('main-content')
 @include('frontend.layouts.page-title-banner')
+
+
 	<br>
 	<br>
 	<br>

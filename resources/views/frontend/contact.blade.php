@@ -1,6 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('main-content')
+@include('frontend.layouts.slider')
 
 	<!-- .contact Us Section -->
 	<section class="contact-us">

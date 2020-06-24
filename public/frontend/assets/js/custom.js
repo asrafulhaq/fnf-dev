@@ -87,7 +87,6 @@
 					
 					// Data transfer to POPUP 
 					
-					$("h1#pppidid").html(pid);
 					$("input#ppidid").val(pid);
 					$("#pp-name").html(data.name);
 
@@ -113,12 +112,6 @@
 
 
 
-
-		
-		
-		
-
-		
 		
 
 	});

@@ -253,4 +253,44 @@ class HomePageManagement extends Controller
     }
 
 
+
+    /**
+     * Page Title Banner 
+     */
+
+    public function pageBannerView()
+    {
+        $home_page_data = HomePage::find(1);
+        return view('admin.home.title-banner.edit', [
+            'home_data'     => $home_page_data
+        ]);
+    }
+
+    public function pageBannerUpload(Request $request)
+    {
+        if ( $request -> hasFile('page_banner') ) {
+            
+           $img = $request -> file('page_banner');
+
+           $unique_name = md5(time() . rand()).".". $img -> getClientOriginalExtension();
+
+           $img -> move(public_path('media/home'), $unique_name);
+
+        }else {
+            echo $unique_name = $request -> old_file;
+        }
+
+
+        
+
+
+        $data = HomePage::find(1);
+
+        $data -> page_banner = $unique_name;
+        $data  -> update();
+
+        return redirect() -> back() -> with('success', 'Page Banner added successful !');
+
+    }
+
 }
