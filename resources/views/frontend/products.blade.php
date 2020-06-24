@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 @section('main-content')
-@include("frontend.layouts.slider")
+@include("frontend.layouts.page-title-banner")
 
 	<!-- all products   -->
 	<section class="all-products">

@@ -62,12 +62,12 @@
 
 
                         <li>
-                            <a href="#" class="auto"> 
+                            <a href="{{ route('all-orders') }}" class="auto"> 
                                 
                                 <i class="i i-stack icon"> </i> 
                                 <span class="font-bold">Orders</span>
                             </a>
-                            <ul class="nav dk">
+                            {{-- <ul class="nav dk">
                                 <li>
                                     <a href="{{ route('all-orders') }}" class="auto"> <i class="i i-dot"></i> <span>All Orders</span> </a>
                                 </li>
@@ -78,7 +78,7 @@
                                     <a href="" class="auto"> <i class="i i-dot"></i> <span>Complete Orders</span> </a>
                                 </li>
                                 
-                            </ul>
+                            </ul> --}}
                         </li>
 {{-- 
                         <li>

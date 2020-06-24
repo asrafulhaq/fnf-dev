@@ -34,6 +34,7 @@ class HomePageManagement extends Controller
            $unique_name = md5(time() . rand()).".". $img -> getClientOriginalExtension();
 
            $img -> move(public_path('media/home'), $unique_name);
+           unlink('public/media/home/'. $request -> old_file);
 
         }else {
             $unique_name = $request -> old_file;
@@ -81,6 +82,7 @@ class HomePageManagement extends Controller
            $unique_name = md5(time() . rand()).".". $img -> getClientOriginalExtension();
 
            $img -> move(public_path('media/home'), $unique_name);
+           unlink('public/media/home/'. $request -> old_file);
 
         }else {
             echo $unique_name = $request -> old_file;
@@ -195,6 +197,7 @@ class HomePageManagement extends Controller
            $unique_name = md5(time() . rand()).".". $img -> getClientOriginalExtension();
 
            $img -> move(public_path('media/home'), $unique_name);
+           unlink('public/media/home/'. $request -> old_file);
 
         }else {
             echo $unique_name = $request -> old_file;
@@ -268,6 +271,8 @@ class HomePageManagement extends Controller
 
     public function pageBannerUpload(Request $request)
     {
+
+
         if ( $request -> hasFile('page_banner') ) {
             
            $img = $request -> file('page_banner');
@@ -275,6 +280,8 @@ class HomePageManagement extends Controller
            $unique_name = md5(time() . rand()).".". $img -> getClientOriginalExtension();
 
            $img -> move(public_path('media/home'), $unique_name);
+
+           unlink('public/media/home/'. $request -> old_file);
 
         }else {
             echo $unique_name = $request -> old_file;
