@@ -122,6 +122,8 @@ class ProductCatManagement extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = ProductCat::find($id);
+        $data -> delete();
+         return redirect() -> back() -> with('success', 'Product category deleted successful !');
     }
 }
