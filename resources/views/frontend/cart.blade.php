@@ -1,5 +1,8 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.app') 
+
+
 @section('main-content')
+@include('frontend.layouts.page-title-banner')
 	<br>
 	<br>
 	<br>

@@ -1,4 +1,4 @@
-  <!-- TOP BAR ADD BANNER  -->
+  <!-- TOP BAR ADD BANNER  --> 
   @if( $home_page_data -> top_banner_switch == 'show' )
     <section class="top-bar-add-banner">
       <img id="top-bar-img" src="{{ URL::to('/') }}/public/media/home/{{ $home_page_data -> top_banner }}" alt="">
@@ -38,6 +38,6 @@
   </section>
 
   @include("frontend.layouts.menu")
-  @include("frontend.layouts.slider")
+
   
  

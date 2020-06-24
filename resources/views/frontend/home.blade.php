@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
-
 @section('main-content')
+@include("frontend.layouts.slider")
 
 @php
 	$home_page_data  = App\Model\HomePage::find(1);

@@ -1,6 +1,7 @@
 @extends('frontend.layouts.app')
-
 @section('main-content')
+@include("frontend.layouts.slider")
+
 	<!-- all products   -->
 	<section class="all-products">
 		<div class="container">

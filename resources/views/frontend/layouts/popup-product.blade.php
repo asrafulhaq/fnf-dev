@@ -27,8 +27,6 @@
 
 
 								<div class="product-title">
-
-									<h1 id="pppidid"></h1>
 									<h2 id="pp-name"></h2>
 								</div>
 
