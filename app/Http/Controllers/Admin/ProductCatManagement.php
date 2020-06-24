@@ -98,8 +98,11 @@ class ProductCatManagement extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $data = ProductCat::find($id);
+        return view('admin.product.category.edit',  [
+            'single_product'    => $data
+        ]);
     }
 
     /**
@@ -111,7 +114,36 @@ class ProductCatManagement extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /**
+         * Post validate 
+         */
+        $this -> validate($request, [
+            'cat_name'          => 'required',
+            'cat_icon'         => 'required',
+
+        ],[
+            'cat_name.required'     => 'Product Category name is required ! ',
+            'cat_icon.required'     => 'Product icon is required ! ',
+        ]);
+
+
+
+        if ( $request -> status == 'Published' ) {
+            $status = "Published";
+        }else {
+            $status = "Unpublished";
+        }
+
+        $data = ProductCat::find($id);
+        $data -> name = $request -> cat_name;
+        $data -> slug = Str::slug($request -> cat_name);
+        $data -> sub_cat = '';
+        $data -> icon = $request -> cat_icon;
+        $data -> status =  $status;
+        $data -> update();
+       
+
+        return redirect() -> back() -> with('success', 'Product category Updated successful !');
     }
 
     /**
