@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Model\Cart;
+use App\Model\Order;
+
+
 class OrderManagement extends Controller
 {
     /**
@@ -14,7 +18,10 @@ class OrderManagement extends Controller
      */
     public function index()
     {
-        return view('frontend.checkout');
+        $data = Cart::where('user_ip', request() -> ip() ) -> latest() -> get();
+        return view('frontend.checkout', [
+            'checkout_cart' => $data
+        ]);
     }
 
     /**
@@ -24,7 +31,7 @@ class OrderManagement extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +42,24 @@ class OrderManagement extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        Order::create([
+            'name'              => $request -> customer_name,
+            'cell'              => $request -> customer_cell,
+            'email'             => $request -> customer_email,
+            'dist'              => $request -> customer_dist,
+            'address'           => $request -> customer_address,
+            'payment_system'           => $request -> payment,
+            'order_status'      =>  'Pending',
+            'cart_id'           => '',
+            'total_amount'      => $request -> total_amount,
+            'customer_ip'      => request() -> ip(),
+        ]);
+
+        return redirect() -> back() -> with('success','Thanks for your Order');
+
+
     }
 
     /**
@@ -81,5 +105,48 @@ class OrderManagement extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    public function orderAll()
+    {
+        $data = Order::latest() -> get();
+        return view('admin.orders.index', [
+            'all_order' => $data
+        ]);
+    }
+
+
+
+    public function orderComplete($id)
+    {
+        $data = Order::find($id);
+        $data -> order_status = 'Complete';
+        $data -> update();
+
+
+        return redirect() -> back() -> with('success','Order completed successfull');
+
+    }
+
+
+    public function orderPending($id)
+    {
+       $data = Order::find($id);
+        $data -> order_status = 'Pending';
+        $data -> update();
+
+
+        return redirect() -> back() -> with('success','Order pending successfull');
+    }
+
+    public function orderDelete($id)
+    {
+        $data = Order::find($id);
+        $data -> delete();
+
+
+        return redirect() -> back() -> with('success','Order delete successfull');
     }
 }

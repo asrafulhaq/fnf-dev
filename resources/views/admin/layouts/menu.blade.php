@@ -69,7 +69,7 @@
                             </a>
                             <ul class="nav dk">
                                 <li>
-                                    <a href="" class="auto"> <i class="i i-dot"></i> <span>All Orders</span> </a>
+                                    <a href="{{ route('all-orders') }}" class="auto"> <i class="i i-dot"></i> <span>All Orders</span> </a>
                                 </li>
                                 <li>
                                     <a href="" class="auto"> <i class="i i-dot"></i> <span>Pending Orders</span> </a>
@@ -80,10 +80,10 @@
                                 
                             </ul>
                         </li>
-
+{{-- 
                         <li>
                             <a href="" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Customers</span> </a>
-                        </li>
+                        </li> --}}
 
                         <li>
                             <a href="{{ route('home-slider.index') }}" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Sliders</span> </a>

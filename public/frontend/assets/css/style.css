@@ -829,7 +829,9 @@ input:focus {
 
 .user-address input, .user-address textarea {
 	border-radius: 0px;
-	border: 1px solid #666;
+	border: 1px solid #ccc;
+	padding: 4px;
+	border-radius: 5px;
 }
 
 
@@ -876,3 +878,9 @@ input:focus {
 	width: 20px;
 	display: inline-block;
 }
+
+
+.payment .payment-items {
+	font-family: h-b;
+}
+

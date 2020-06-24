@@ -87,8 +87,18 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::get('/cart/delete/{id}', 'CartManagement@destroy') -> name('cart.destroy');
 	Route::get('/cart/update/{id}', 'CartManagement@update') -> name('cart.update');
 
+
+
 	// checkout 
 	Route::get('/checkout', 'OrderManagement@index') -> name('checkout');
+	Route::post('/checkout/store', 'OrderManagement@store') -> name('checkout.store');
+
+
+	// Orders 
+	Route::get('all-orders', 'OrderManagement@orderAll')  -> name('all-orders');
+	Route::get('complete-orders/{id}', 'OrderManagement@orderComplete') -> name('order.complete');
+	Route::get('pending-orders/{id}', 'OrderManagement@orderPending') -> name('order.pending');
+	Route::get('delete-orders/{id}', 'OrderManagement@orderDelete') -> name('order.delete');
 
 
 });
