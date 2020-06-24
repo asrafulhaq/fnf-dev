@@ -112,6 +112,70 @@
 
 
 
+		// Cart page loading 
+		function cart_page(){
+
+			$.ajax({
+				url : "cart-load/",
+				success : function(data){
+					
+					$('.cart-all').html(data);
+					
+				}
+			});
+
+
+
+		}
+
+		cart_page();
+
+
+		// Cart items update real time 
+		$(document).on('change', 'input#cart_item_num', function(e){
+
+			
+
+			let quan_items = $(this).val();
+			let id_items = $(this).attr('items_id');
+
+ 			$.ajax({
+				url : "cart/update/" + id_items,
+				data : { quan_items : quan_items },
+				success : function(data){
+					
+					
+					cart_page();
+					
+				}
+			});
+
+
+
+		});
+
+		// Cart items Delete real time 
+		$(document).on('click', 'a#cart_del_item', function(e){
+
+			e.preventDefault();
+
+			let del_id = $(this).attr('del'); 			
+
+			$.ajax({
+				url : "cart/delete/" + del_id,
+				success : function(data){
+					
+					cart_page();
+					
+				}
+			});
+
+			
+
+		});
+
+
+
 		
 
 	});

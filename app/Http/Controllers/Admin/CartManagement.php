@@ -105,7 +105,15 @@ class CartManagement extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $data = Cart::find($id);
+
+
+        $data -> product_quantity = $request -> quan_items;
+        $data -> product_price = $data -> product_price;
+        $data -> product_amount = ($request -> quan_items * $data -> product_price ) ;
+
+        $data -> update();
+
     }
 
     /**
@@ -121,5 +129,65 @@ class CartManagement extends Controller
          $data -> delete();
 
          return back();
+    }
+
+    public function cartLoad()
+    {
+       
+        $data = Cart::where('user_ip', request() -> ip() ) -> latest() -> get();
+        ?>
+        <div class="cart">
+            <div class="cart-items">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    
+                    <?php  
+
+                        $total_price_final = 0;
+                        foreach($data as $cart) :
+
+                            $total_price = $cart -> product_amount;
+                            $total_price_final += $total_price; 
+                    ?>
+                    
+                    <tr>
+                        <td><a style="color:red;" id="cart_del_item" del="<?php echo  $cart -> id ?>" href="#"><i class="ti-close"></i></a></td>
+                        <td><img style="width: 50px;height:50px;" src="public/media/products/<?php echo  $cart -> product_photo ?>" alt=""></td>
+                        <td><?php echo $cart ->  product_name; ?></td>
+                        <td><input items_id="<?php echo $cart -> id ?>" id="cart_item_num" type="number" value="<?php echo $cart -> product_quantity; ?>"></td>
+                        <td><?php echo $cart -> product_price; ?></td>
+                        <td><?php echo $cart -> product_amount; ?></td>
+                    </tr>
+                    
+                    <?php endforeach; ?>
+
+                    <tr>
+                        <td colspan="5" class="text-right">Total Price : </td>
+                        <td>
+                            <?php 
+                                echo $total_price_final;
+                            ?>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="cart-info">
+                <a class="btn btn-info" href="shop">Continue Shop</a> 
+            </div>
+        </div>
+
+        <?php 
+
+
     }
 }

@@ -82,8 +82,10 @@ Route::group(['namespace' => 'Admin'], function(){
 
 	// For shop Page
 	Route::get('/cart', 'CartManagement@index');
+	Route::get('/cart-load', 'CartManagement@cartLoad');
 	Route::post('/cart/store', 'CartManagement@store') -> name('cart.store');
 	Route::get('/cart/delete/{id}', 'CartManagement@destroy') -> name('cart.destroy');
+	Route::get('/cart/update/{id}', 'CartManagement@update') -> name('cart.update');
 
 	// checkout 
 	Route::get('/checkout', 'OrderManagement@index') -> name('checkout');

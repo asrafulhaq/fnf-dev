@@ -8,11 +8,15 @@
 	<br>
 	<br>
 	<br>
+
+
 	<section class="cart-page">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
-					<div class="cart">
+
+
+					{{-- <div class="cart">
 						<div class="cart-items">
 							<table class="table table-striped">
 								<thead>
@@ -42,7 +46,7 @@
 										<td><img style="width: 50px;height:50px;" src="{{ URL::to('/') }}/public/media/products/{{ $cart -> product_photo }}" alt=""></td>
 										<td>{{ $cart -> product_name }}</td>
 
-										<td><input type="number" value="{{ $cart -> product_quantity }}">
+										<td><input items_id="{{ $cart -> id }}" id="cart_item_num" type="number" value="{{ $cart -> product_quantity }}">
 
 										</td>
 										<td>{{ $cart -> product_price }}</td>
@@ -65,7 +69,16 @@
 						<div class="cart-info">
 							<a class="btn btn-info" href="{{ url('shop') }}">Continue Shop</a> 
 						</div>
+					</div> --}}
+					
+					<div class="cart-all">
+						
 					</div>
+
+
+
+
+
 				</div>
 				<div class="col-md-4">
 					<div class="cart-note">
@@ -84,6 +97,8 @@
 			</div>
 		</div>
 	</section>
+
+
 	<br>
 	<br>
 	<br>
