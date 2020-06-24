@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="{{ asset('public/admin/css/app.v1.css')}}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('public/admin/js/calendar/bootstrap_calendar.css')}}" type="text/css" />

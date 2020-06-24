@@ -1,0 +1,1 @@
+@extends('lauouts.app')

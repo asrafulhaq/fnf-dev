@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Http\Controllers\Frontend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Model\Post;
+use App\Model\Product;
+// use App\Model\Slider;
+
+class FrontEndManagement extends Controller
+{
+    public function homepage()
+    {
+    	$products = Product::where('status', 'Published') -> latest() -> paginate(8);
+        return view('frontend.home', [
+            'products'      => $products
+        ]);
+    }
+
+    public function blog()
+    {
+
+        $all_post = Post::where('status','Published') -> latest() -> paginate(2);
+    	return view('frontend.blog', [
+            'all_post'  => $all_post
+        ]);
+    }
+
+
+
+     public function contact()
+    {
+
+        $all_post = Post::where('status','Published') -> latest() -> paginate(2);
+        return view('frontend.contact', [
+            'all_post'  => $all_post
+        ]);
+    }
+
+
+
+    public function shop()
+    {
+        $products = Product::where('status', 'Published') -> latest() -> paginate(8);
+        return view('frontend.products', [
+            'products'      => $products
+        ]);
+    }
+
+
+    public function popupSingleProduct($id)
+    {
+        $single_product = Product::find($id);
+
+        return $single_product;
+
+    }
+
+
+}
