@@ -121,6 +121,8 @@ class SliderManagement extends Controller
 
         $data -> delete();
 
+        unlink('public/media/slider/' . $data -> slide_img );
+
         return redirect() -> route('home-slider.index') -> with('success', 'Slide Image Deleted successful !');
 
     }
