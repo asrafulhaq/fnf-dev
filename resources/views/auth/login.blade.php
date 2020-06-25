@@ -16,15 +16,15 @@
     <!-- favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="">
 </head>
-<body>
+<body style="background-color:#f9f9f9;">
     
     
     
     
     <!-- LOGIN AND REGISTRATION PAGE  -->
     <section class="login-register">
-        <div class="left-cont"></div>
-        <div class="right-cont">
+        <img style="width: 200px;display:block;margin: 100px auto 20px; " src="{{ asset('public/frontend/assets/media/img/logo.png') }}" alt="">
+        <div class="right-cont shadow-sm">
             <div class="auth-form">
                 <h2>Sign In</h2>
                 <form action="{{ route('login') }}" method="POST">

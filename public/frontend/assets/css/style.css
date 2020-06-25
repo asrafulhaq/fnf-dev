@@ -585,46 +585,45 @@ input:focus {
 
 
  /*LOGIN & REG */
-.login-register {
-	
-}
 
-.login-register:after {
-  	content:'';
-  	display: block;
-  	clear: both;
-}
-
-.login-register .left-cont{
- 	background-color: #f17322;
- 	width: 60%;
- 	height: 100vh;
- 	float: left;
-}
 
 
 .login-register .right-cont{
- 	background-color: #eee;
- 	width: 40%;
- 	height: 100vh;
- 	float: left;
+ 	width: 450px;
+	margin: auto;
+	padding: ;
+	font-family: h-l !important;
+	background-color: #fff;
 }
 
 
 .auth-form {
-	margin: 100px 50px 0px 50px;
 	padding: 30px;
+	
+}
+
+.auth-form h2 {
 	font-family: h-b;
+	font-size: 26px;
+}
+
+.auth-form label {
+	font-family: h-l;
+	font-size: 14px;
+
 }
 
 .auth-form input {
 	border-radius: 0px;
-	border: 1px solid #f17322;
+	border: 1px solid #999;
 	padding: 10px;
+	font-family: h-l;
 }
 
 .auth-form input[type="submit"] {
-	background-color: #f17322;
+	background-color: #333;
+	color: #FFF;
+	font-family: h-b;
 }
 
  /*PAGE TITLE BAR BANNER */
