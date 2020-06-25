@@ -27,6 +27,9 @@ Route::group(['namespace' => 'Frontend'], function(){
 	// CCategory search 
 	Route::get('category/{slug}', 'FrontEndManagement@searchByCategoryItems') -> name('category.search');
 
+	// Category search 
+	Route::post('product/search', 'FrontEndManagement@productSearch') -> name('product.search');
+
 	
 
 

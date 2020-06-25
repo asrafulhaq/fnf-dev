@@ -9,8 +9,9 @@
             </a>
           </div>
           <div class="col-md-9">
-            <form action="">
-              <input type="search"><button><i class="fas fa-search"></i></button>
+            <form action="{{ route('product.search') }}" method="POST">
+              @csrf
+              <input name="search" type="search"><button><i class="fas fa-search"></i></button>
             </form>
           </div>
         </div>

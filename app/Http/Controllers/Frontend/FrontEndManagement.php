@@ -71,4 +71,17 @@ class FrontEndManagement extends Controller
         
     }
 
+
+    public function productSearch(Request $val)
+    {
+        $search = $val -> search;
+
+        $data = Product::where('name','like', '%'.$search.'%') -> latest() -> get();
+
+        return view('frontend.search', [
+            'search_product'       => $data
+        ]);
+
+    }
+
 }
