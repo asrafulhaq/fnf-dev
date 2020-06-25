@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="footer-widget">
-              <img class="widget-logo" src="public/frontend/assets/media/img/logo.png" alt="">
+              <img class="widget-logo" src="{{ URL::to('public/frontend/assets/media/img/logo.png') }}" alt="">
               <p class="widget-content">Home cooks most generally use the term frosting and icing interchangeably.</p>
               <ul class="widget-social">
 
@@ -64,15 +64,15 @@
           <div class="col-md-3">
             <div class="footer-widget">
               <div class="widget-payments">
-                <img src="public/frontend/assets/media/img/payments/cod.webp" alt="">
-                <img src="public/frontend/assets/media/img/payments/bkash.webp" alt="">
-                <img src="public/frontend/assets/media/img/payments/rocket.webp" alt="">
-                <img src="public/frontend/assets/media/img/payments/visa.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/cod.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/bkash.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/rocket.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/visa.webp" alt="">
                 <br>
-                <img src="public/frontend/assets/media/img/payments/city-bank.webp" alt="">
-                <img src="public/frontend/assets/media/img/payments/amex-card.webp" alt="">
-                <img src="public/frontend/assets/media/img/payments/dmoney.webp" alt="">
-                <img src="public/frontend/assets/media/img/payments/master-card.webp" alt="">
+                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/city-bank.webp" alt="">
+                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/amex-card.webp" alt="">
+                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/dmoney.webp" alt="">
+                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/master-card.webp" alt="">
               </div>
             </div>
           </div>
