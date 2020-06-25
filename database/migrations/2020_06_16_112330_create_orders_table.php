@@ -17,12 +17,12 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('cell');
-            $table->string('email');
-            $table->string('dist');
-            $table->string('address');
-            $table->string('payment_system');
+            $table->string('email') -> nullable();
+            $table->string('dist') -> nullable();
+            $table->string('address') -> nullable();
+            $table->string('payment_system') ;
             $table->string('order_status');
-            $table->string('cart_id');
+            $table->string('cart_id') -> nullable() ;
             $table->string('total_amount');
             $table->string('customer_ip');
             $table->timestamps();

@@ -43,6 +43,15 @@ class OrderManagement extends Controller
     public function store(Request $request)
     {
 
+        /**
+         * Post validate 
+         */
+        $this -> validate($request, [
+            'customer_name'             => 'required',
+            'customer_cell'             => 'required',
+
+        ]);
+
 
         Order::create([
             'name'              => $request -> customer_name,
