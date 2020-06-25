@@ -11,13 +11,20 @@
 						
 						@foreach( $all_post as $posts )
 						<article>
-							<a href="#"><img src="{{ URL::to('/') }}/public/media/blog/{{ $posts -> featured_image }}" alt=""></a>
-							<h2>{{ $posts -> title }}</h2>
-							{!! htmlspecialchars_decode($posts -> content) !!}
-							{{-- <a class="rmore" href="#">Read More</a> --}}
+							<div class="blog-section">
+								<div class="blog-featured-image">
+									<a href="#"><img class="shadow" src="{{ URL::to('/') }}/public/media/blog/{{ $posts -> featured_image }}" alt=""></a>
+								</div>
+								<div class="blog-content">
+									<h2>{{ $posts -> title }}</h2>
+									<p>{!! htmlspecialchars_decode($posts -> content) !!}</p>
+									<a class="btn btn-primary" style="background-color: #fd7e14; border:1px solid #fd7e14;" href="#">Read More</a>
+								</div>
+							</div>
 						</article>
 						@endforeach
-
+												
+						
 			
 
 					</div>
@@ -44,11 +51,19 @@
 							<hr>
 							<div class="category">
 								<ul>
-									<li><a href="#">Category name</a></li>
-									<li><a href="#">Category name</a></li>
-									<li><a href="#">Category name</a></li>
-									<li><a href="#">Category name</a></li>
-									<li><a href="#">Category name</a></li>
+
+									@php
+										$category  = App\Model\PostCat::latest() -> get();
+
+										foreach( $category as $cat ) :
+									@endphp
+									<li><a href="#">{{ $cat -> name }}</a></li>
+									@php
+										endforeach;
+									@endphp
+
+
+
 								</ul>
 							</div>
 						</div>

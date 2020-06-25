@@ -682,46 +682,51 @@ input:focus {
  }
 
  /*Blog */
- .blog {
- 	padding: 30px 0px;
- }
-
-  .blog-post article {
-  	border-bottom: 1px solid #eee;
-  	margin: 20px 0px;
-  	padding: 20px 0px;
-  }
-
- .blog-post article img {
- 	transition: .3s;
- 	width: 100%;
- }
- .blog-post article img:hover{
-	transform: scale(1.05);
- }
-
- .blog-post article h2 {
- 	font-family: h-b;
- 	font-size: 18px;
- 	color: #333;
- 	margin-top: 20px;
- }
-
-.blog-post article p {
- 	font-family: h-l;
- 	font-size: 14px;
- 	color: #555;
- }
-
-.blog-post article a.rmore {
-	background-color: #fd7e14;
-	font-size: 14px;
-	font-family: h-b;
-	display: inline-block;
-	padding: 10px 20px;
-	color: #FFF;
+.blog {
+	padding: 30px 0px;
 }
 
+.blog-post article {
+	border-bottom: 1px solid #eee;
+	margin: 20px 0px;
+	padding: 20px 0px;
+}
+	
+.blog-post article .blog-section:after {
+	content:'';
+	display: block;
+	clear: both;
+} 
+
+.blog-post article .blog-featured-image {
+	width: 40%;
+	float: left;
+}
+
+.blog-post article .blog-featured-image img {
+	width: 100%;
+	padding: 30px;
+	border: 5px solid #FFF;
+
+}
+
+.blog-post article .blog-content {
+	width: 60%;
+	float: left;
+	padding: 0px 30px;
+}
+
+.blog-post article .blog-content h2 {
+	font-family: h-b;
+	font-size: 34px;
+
+}
+
+.blog-post article .blog-content p {
+	font-family: h-l;
+	font-size: 14px;
+
+}
 
  /*SIDEBAR */
 
@@ -750,7 +755,7 @@ input:focus {
  }
 
 .sidebar .blog-search .search-form button {
- 	padding: 5px;
+ 	padding: 9px 5px;
  	border: 1px solid #fd7e14;
 	width: 20%;
 	color: #FFF;
@@ -765,7 +770,7 @@ input:focus {
 
 .sidebar .blog-search .category ul li a{
 	color: #333;
-	font-family: h-l;
+	font-family: h-b;
 	font-size: 14px;
 	color: #555;
 }

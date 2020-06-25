@@ -22,7 +22,7 @@ class FrontEndManagement extends Controller
     public function blog()
     {
 
-        $all_post = Post::where('status','Published') -> latest() -> paginate(2);
+        $all_post = Post::where('status','Published') -> latest() -> paginate(4);
     	return view('frontend.blog', [
             'all_post'  => $all_post
         ]);
