@@ -94,7 +94,7 @@
 					if(data.sale_price == null){
 						$('h3#pp-price').html(data.regular_price);
 					}else{
-						$('h3#pp-price').html("<del>$" + data.sale_price +  "</del>$" + data.regular_price);
+						$('h3#pp-price').html("<del>$" + data.regular_price +  "</del>$" + data.sale_price);
 					}
 					
 					$("#pp-desc").html(data.desc);
