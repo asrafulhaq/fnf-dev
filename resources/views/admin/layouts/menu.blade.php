@@ -15,7 +15,7 @@
 
 
                         <li class="active">
-                            <a href="{{ url('/') }}" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Dashboard</span> </a>
+                            <a href="{{ url('dashboard') }}" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Dashboard</span> </a>
                         </li>
 
 

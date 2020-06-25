@@ -32,6 +32,8 @@ Route::group(['namespace' => 'Frontend'], function(){
 
 	
 
+	
+
 
 	
 });
@@ -106,6 +108,10 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::get('complete-orders/{id}', 'OrderManagement@orderComplete') -> name('order.complete');
 	Route::get('pending-orders/{id}', 'OrderManagement@orderPending') -> name('order.pending');
 	Route::get('delete-orders/{id}', 'OrderManagement@orderDelete') -> name('order.delete');
+
+
+	// Dashboard search 
+	Route::resource('dashboard', 'DashboardManagement');
 
 
 });
