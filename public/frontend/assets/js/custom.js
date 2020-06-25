@@ -176,6 +176,45 @@
 
 
 
+		// Product Carrt Page pop up dynamic
+		$(document).on('click','#cart-item',function(e){
+			
+			let pid = $(this).attr('pid');
+			
+			
+
+			$.ajax({
+				url : "http://localhost/fnf-dev/popup-product/" + pid,
+				dataType : "json",
+				success : function(data){
+					
+					// Data transfer to POPUP 
+					
+					$("input#ppidid").val(pid);
+					$("#pp-name").html(data.name);
+
+					// Sale price manage 
+					if(data.sale_price == null){
+						$('h3#pp-price').html(data.regular_price);
+					}else{
+						$('h3#pp-price').html("<del>$" + data.regular_price +  "</del>$" + data.sale_price);
+					}
+					
+					$("#pp-desc").html(data.desc);
+					$("#pp-photo").attr('src', 'http://localhost/fnf-dev/public/media/products/' + data.product_image);
+					
+					
+					
+				}
+			});
+
+			$('#p-modal').modal('show');
+
+			return false;
+		});
+
+
+
 		
 
 	});

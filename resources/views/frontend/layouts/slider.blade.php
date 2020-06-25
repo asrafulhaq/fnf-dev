@@ -28,7 +28,7 @@
                   $all_cat = App\Model\Category::latest() -> take(7) -> get();;
                 @endphp
                 @foreach( $all_cat as $cat )
-                <li class="list-group-item"><a href=""> <i class="{{ $cat -> icon }}"></i> {{ $cat -> name }}</a></li>
+                <li class="list-group-item"><a href="{{ route('category.search', $cat -> slug ) }}"> <i class="{{ $cat -> icon }}"></i> {{ $cat -> name }}</a></li>
                 @endforeach
                 <li class="list-group-item"><a href=""> <i class="fas fa-utensils"></i></i> <strong> All Categories </strong> </a></li>
 

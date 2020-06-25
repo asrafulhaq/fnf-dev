@@ -23,6 +23,10 @@ Route::group(['namespace' => 'Frontend'], function(){
 	// Customers Route 
 	Route::get('customer-login', 'CustomerController@index');
 
+
+	// CCategory search 
+	Route::get('category/{slug}', 'FrontEndManagement@searchByCategoryItems') -> name('category.search');
+
 	
 
 

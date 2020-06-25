@@ -7,15 +7,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="section-title">Our Products</h2>
+					<h2 class="section-title">Product by {{ $category_product -> name }}</h2>
 				</div>
 			</div>
 			<div class="row">
 
 
-				@foreach( $products as $pro )
+				@foreach( $category_product -> products as $pro )
 				<div class="col-md-3">
-					<div pid="{{ $pro -> id }}" class="product-items">
+					<div pid="{{ $pro -> id }}" class="product-items" id="cart-item">
 						<div class="product-featured">
 							<a href="#"><img class="w-100" style="" src="{{ URL::to('') }}/public/media/products/{{  $pro -> product_image }}" alt=""></a>
 
@@ -31,11 +31,11 @@
 							</span>
 							<h4><a href="#">{{ $pro -> name }}</a></h4>
 							<div class="price-amount">
-								@if( $pro -> sale_price == null ) 
+								@if( $pro -> sale_price == NULL ) 
 									<span class="product-price">$ {{ $pro -> regular_price }}</span>
 								@else 
 									<del>${{ $pro -> regular_price }}</del>
-									<span class="product-price">$ {{ $pro -> sale_price }}</span>
+									<span class="product-price">$ {{ $pro -> sale_price }} </span>
 								@endif
 								
 							</div>

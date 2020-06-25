@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Post;
 use App\Model\Product;
 use App\Model\Slider;
+use App\Model\Category;
 
 class FrontEndManagement extends Controller
 {
@@ -57,5 +58,17 @@ class FrontEndManagement extends Controller
 
     }
 
+
+
+
+    public function searchByCategoryItems($slug)
+    {
+       $data = Category::where('slug', $slug) -> first();
+        return view('frontend.category', [
+            'category_product'  => $data
+        ]);
+
+        
+    }
 
 }
