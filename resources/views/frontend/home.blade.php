@@ -112,11 +112,11 @@
 
 					
 					@php
-						$best_data   = App\Model\Product::latest() -> get();
+						$fwf_data   = App\Model\Category::where('slug','freshwater-fish') -> first();
 					@endphp
 
-					@foreach( $best_data as $data )
-					<div pid="{{ $pro -> id }}" class="product-items">
+					@foreach( $fwf_data -> products as $data )
+					<div pid="{{ $data -> id }}" class="product-items">
 						<div class="product-featured">
 							<a href="#"><img class="w-100" style="" src="{{ URL::to('') }}/public/media/products/{{  $data -> product_image }}" alt=""></a>
 
