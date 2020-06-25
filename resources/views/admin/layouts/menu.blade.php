@@ -14,7 +14,7 @@
                     <ul class="nav nav-main" data-ride="collapse">
 
 
-                        <li class="active">
+                        <li>
                             <a href="{{ url('dashboard') }}" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Dashboard</span> </a>
                         </li>
 
@@ -62,23 +62,23 @@
 
 
                         <li>
-                            <a href="{{ route('all-orders') }}" class="auto"> 
+                            <a href="" class="auto"> 
                                 
                                 <i class="i i-stack icon"> </i> 
                                 <span class="font-bold">Orders</span>
                             </a>
-                            {{-- <ul class="nav dk">
+                            <ul class="nav dk">
                                 <li>
                                     <a href="{{ route('all-orders') }}" class="auto"> <i class="i i-dot"></i> <span>All Orders</span> </a>
                                 </li>
                                 <li>
-                                    <a href="" class="auto"> <i class="i i-dot"></i> <span>Pending Orders</span> </a>
+                                    <a href="{{ url('order-pending-all') }}" class="auto"> <i class="i i-dot"></i> <span>Pending Orders</span> </a>
                                 </li>
                                 <li>
-                                    <a href="" class="auto"> <i class="i i-dot"></i> <span>Complete Orders</span> </a>
+                                    <a href="{{ url('order-complete-all') }}" class="auto"> <i class="i i-dot"></i> <span>Complete Orders</span> </a>
                                 </li>
                                 
-                            </ul> --}}
+                            </ul>
                         </li>
 {{-- 
                         <li>

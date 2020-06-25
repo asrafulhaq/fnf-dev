@@ -157,5 +157,38 @@ class OrderManagement extends Controller
 
 
         return redirect() -> back() -> with('success','Order delete successfull');
+ 
     }
+
+
+
+
+    public function orderCompleteAll()
+    {
+        $data = Order::where('order_status','Complete') -> latest() -> get();
+        return view('admin.orders.complete', [
+            'all_order' => $data
+        ]);
+    }
+
+
+
+    public function orderPendingAll()
+    {
+        $data = Order::where('order_status','Pending') -> latest() -> get();
+        return view('admin.orders.pending', [
+            'all_order' => $data
+        ]);
+    }
+    
+
+
+
+
+
+
+
+
+
+
 }

@@ -108,6 +108,8 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::get('complete-orders/{id}', 'OrderManagement@orderComplete') -> name('order.complete');
 	Route::get('pending-orders/{id}', 'OrderManagement@orderPending') -> name('order.pending');
 	Route::get('delete-orders/{id}', 'OrderManagement@orderDelete') -> name('order.delete');
+	Route::get('order-complete-all', 'OrderManagement@orderCompleteAll');
+	Route::get('order-pending-all', 'OrderManagement@orderPendingAll');
 
 
 	// Dashboard search 

@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 
-@section('dash-title','All Orders')
+@section('dash-title','All Complete Orders')
 @section('user','Fish n Food')
 @section('user-location','Dhaka')
 
@@ -15,7 +15,7 @@
 
 
             <section class="panel panel-default">
-                <header class="panel-heading">  All Orders </header>
+                <header class="panel-heading">  All Complete Orders </header>
                 <table class="table table-striped m-b-none">
                     <thead>
                         <tr>
