@@ -27,9 +27,6 @@
 						</div>
 						<div class="product-info">
 							<span class="cat-name">
-								@foreach( json_decode($pro -> categories) as $cat )
-									{{ $cat }} , 
-								@endforeach
 
 							</span>
 							<h4><a href="#">{{ $pro -> name }}</a></h4>

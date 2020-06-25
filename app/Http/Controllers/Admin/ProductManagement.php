@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Model\Product;
-use App\Model\ProductCat;
+use App\Model\Category;
 
 class ProductManagement extends Controller
 {
@@ -32,7 +32,7 @@ class ProductManagement extends Controller
     public function create()
     {
 
-        $data = ProductCat::all();
+        $data = Category::all();
         return view('admin.product.create', [
             'all_cat'   => $data
         ]);
@@ -71,7 +71,6 @@ class ProductManagement extends Controller
 
         $product_cat = $request -> product_cat;
 
-        $product_cat_string =  json_encode($product_cat);
 
         if ( $request -> hasFile('product_image') ) {
             
@@ -83,10 +82,11 @@ class ProductManagement extends Controller
 
         }
 
+
+
         $product = Product::create([
             'name'              => $request -> product_name,
             'slug'              => Str::slug($request -> product_name),
-            'categories'        => $product_cat_string,
             'regular_price'     => $request -> regular_price,
             'sale_price'        => $request -> sale_price,
             'shiping_cost'      => $request -> shipping_cost,
@@ -98,7 +98,10 @@ class ProductManagement extends Controller
         ]);
 
 
-        
+         $product -> categories() ->  sync($product_cat);
+
+
+
 
 
         return redirect() -> back() -> with('success', 'Product added successful !');
@@ -126,7 +129,7 @@ class ProductManagement extends Controller
     public function edit($id)
     {
         $data = Product::find($id);
-        $cat_data = ProductCat::all();
+        $cat_data = Category::all();
         return view('admin.product.edit', [
             'single_product'        => $data,
             'categories'            => $cat_data
@@ -167,7 +170,6 @@ class ProductManagement extends Controller
 
         $product_cat = $request -> product_cat;
 
-        $product_cat_string =  json_encode($product_cat);
 
 
 
@@ -189,7 +191,6 @@ class ProductManagement extends Controller
 
         $product_update = Product::find($id);
         $product_update -> name = $request -> product_name;
-        $product_update -> categories = $product_cat_string;
         $product_update -> regular_price = $request -> regular_price;
         $product_update -> sale_price = $request -> sale_price;
         $product_update -> shiping_cost = $request -> shipping_cost;
@@ -198,6 +199,9 @@ class ProductManagement extends Controller
         $product_update -> product_image =  $unique_name;
         $product_update -> desc =  $request -> desc;
         $product_update -> update();
+
+        $product_update -> categories() -> detach();
+        $product_update -> categories() -> sync($product_cat);
 
 
         return redirect() -> back() -> with('success', 'Product updated successful !');
@@ -213,6 +217,8 @@ class ProductManagement extends Controller
     {
         $data = Product::findOrFail($id);
         $data -> delete();
+
+        $data -> categories() -> detach();
 
         return redirect() -> route('product.index') -> with('success', 'Product deleted successful !');
     }

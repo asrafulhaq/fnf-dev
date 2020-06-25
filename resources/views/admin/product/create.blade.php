@@ -34,7 +34,7 @@
                             @foreach( $all_cat as $cat )
                             <div class="checkbox i-checks">
                                 <label>
-                                    <input type="checkbox" name="product_cat[]" value="{{ $cat -> name }}"> <i></i> {{ $cat -> name }} </label>
+                                    <input type="checkbox" name="product_cat[]" value="{{ $cat -> id }}"> <i></i> {{ $cat -> name }} </label>
                             </div>
                             @endforeach
                             

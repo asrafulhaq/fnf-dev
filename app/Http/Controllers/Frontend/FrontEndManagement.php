@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Post;
 use App\Model\Product;
-// use App\Model\Slider;
+use App\Model\Slider;
 
 class FrontEndManagement extends Controller
 {

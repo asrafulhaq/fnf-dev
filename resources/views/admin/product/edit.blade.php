@@ -33,17 +33,11 @@
                             
 
                             @foreach( $categories as $cat )
-                            @php
+                            
 
-                                if( in_array($cat -> name , json_decode($single_product -> categories)) ){
-                                    $checked = "checked";
-                                }else{
-                                     $checked = "";
-                                }
-                            @endphp
                             <div class="checkbox i-checks">
                                 <label>
-                                    <input type="checkbox" {{ $checked }}  name="product_cat[]" value="{{ $cat -> name }}"> <i></i> {{ $cat -> name }} </label>
+                                    <input type="checkbox" <?php if( in_array($cat -> id , $single_product  -> categories -> pluck('id') -> toArray()) ){ echo "checked"; } ?>  name="product_cat[]" value="{{ $cat -> id }}"> <i></i> {{ $cat -> name }} </label>
                             </div>
                             @endforeach
                             

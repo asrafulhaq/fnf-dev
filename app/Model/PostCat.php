@@ -10,6 +10,9 @@ class PostCat extends Model
 
     protected $guarded = [];
 
-
+    // public function products()
+    // {
+    // 	$this -> belongsToMany(Product::class);
+    // }
 
 }

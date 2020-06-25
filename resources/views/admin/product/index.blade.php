@@ -41,9 +41,12 @@
                             <td>{{ $product -> regular_price }}</td>
                             <td>{{ $product -> sale_price }}</td>
                             <td>
-                            @foreach( json_decode( $product -> categories ) as $cat )
-                             {{ $cat }} , 
-                            @endforeach
+                                @foreach( $product -> categories as $cat ) 
+                                    {{ $cat -> name }}
+                                    @if ( !$loop -> last )
+                                        ,
+                                    @endif
+                                @endforeach
                             </td>
                             <td>{{ $product -> stock }}</td>
                             <td style="width:150px;">

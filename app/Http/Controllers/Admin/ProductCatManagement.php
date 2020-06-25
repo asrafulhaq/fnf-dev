@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-use App\Model\ProductCat;
+use App\Model\Category;
 
 class ProductCatManagement extends Controller
 {
@@ -18,7 +18,7 @@ class ProductCatManagement extends Controller
     public function index()
     {
 
-        $data = ProductCat::latest() -> get();
+        $data = Category::latest() -> get();
         return view('admin.product.category.index', [
             'all_cat'   => $data
         ]);
@@ -64,7 +64,7 @@ class ProductCatManagement extends Controller
 
 
 
-        ProductCat::create([
+        Category::create([
             'name'      => $request -> cat_name,
             'slug'      => Str::slug($request -> cat_name),
             'sub_cat'   => '' ,
@@ -99,7 +99,7 @@ class ProductCatManagement extends Controller
      */
     public function edit($id)
     {   
-        $data = ProductCat::find($id);
+        $data = Category::find($id);
         return view('admin.product.category.edit',  [
             'single_product'    => $data
         ]);
@@ -134,7 +134,7 @@ class ProductCatManagement extends Controller
             $status = "Unpublished";
         }
 
-        $data = ProductCat::find($id);
+        $data = Category::find($id);
         $data -> name = $request -> cat_name;
         $data -> slug = Str::slug($request -> cat_name);
         $data -> sub_cat = '';
@@ -154,7 +154,7 @@ class ProductCatManagement extends Controller
      */
     public function destroy($id)
     {
-        $data = ProductCat::find($id);
+        $data = Category::find($id);
         $data -> delete();
          return redirect() -> back() -> with('success', 'Product category deleted successful !');
     }

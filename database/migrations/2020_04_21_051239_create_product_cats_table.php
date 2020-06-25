@@ -13,7 +13,7 @@ class CreateProductCatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_cats', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug') -> unique();
@@ -31,6 +31,6 @@ class CreateProductCatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_cats');
+        Schema::dropIfExists('category');
     }
 }
