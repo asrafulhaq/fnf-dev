@@ -18,7 +18,8 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('slug') -> unique();
             $table->string('sub_cat') -> nullable();
-            $table->string('icon');
+            $table->string('icon') -> nullable();
+            $table->string('icon') -> nullable();
             $table->string('status');
             $table->timestamps();
         });

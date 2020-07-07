@@ -47,11 +47,9 @@ class ProductCatManagement extends Controller
          */
         $this -> validate($request, [
             'cat_name'          => 'required',
-            'cat_icon'         => 'required',
 
         ],[
             'cat_name.required'     => 'Product Category name is required ! ',
-            'cat_icon.required'     => 'Product icon is required ! ',
         ]);
 
 
@@ -63,12 +61,23 @@ class ProductCatManagement extends Controller
         }
 
 
+        if ( $request -> hasFile('cat_icon_img') ) {
+            
+           $img = $request -> file('cat_icon_img');
+
+           $unique_name = md5(time() . rand()).".". $img -> getClientOriginalExtension();
+
+           $img -> move(public_path('media/products/cat'), $unique_name);
+
+        }
+
 
         Category::create([
             'name'      => $request -> cat_name,
             'slug'      => Str::slug($request -> cat_name),
             'sub_cat'   => '' ,
             'icon'      => $request -> cat_icon ,
+            'icon_img'  => $unique_name,
             'status'    => $status
         ]);
 
@@ -119,14 +128,22 @@ class ProductCatManagement extends Controller
          */
         $this -> validate($request, [
             'cat_name'          => 'required',
-            'cat_icon'         => 'required',
 
         ],[
             'cat_name.required'     => 'Product Category name is required ! ',
-            'cat_icon.required'     => 'Product icon is required ! ',
         ]);
 
+        if ( $request -> hasFile('new_img') ) {
+            
+            $img = $request -> file('new_img');
 
+            $unique_name = md5(time() . rand()).".". $img -> getClientOriginalExtension();
+
+            $img -> move(public_path('media/products/cat'), $unique_name);
+
+        }else {
+            $unique_name = $request -> old_img;
+        }
 
         if ( $request -> status == 'Published' ) {
             $status = "Published";
@@ -139,6 +156,7 @@ class ProductCatManagement extends Controller
         $data -> slug = Str::slug($request -> cat_name);
         $data -> sub_cat = '';
         $data -> icon = $request -> cat_icon;
+        $data -> icon_img = $unique_name;
         $data -> status =  $status;
         $data -> update();
        

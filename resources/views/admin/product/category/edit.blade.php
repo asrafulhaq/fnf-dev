@@ -12,7 +12,7 @@
         <section class="panel panel-default">
             <header class="panel-heading font-bold">Category Update</header>
             <div class="panel-body">
-                <form class="bs-example form-horizontal" action="{{ route('product-category.update', $single_product -> id ) }}" method="POST">
+                <form class="bs-example form-horizontal" action="{{ route('product-category.update', $single_product -> id ) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
 
@@ -26,11 +26,25 @@
                     <div class="form-group">
                         <label class="col-lg-2 control-label">Category Icon name</label>
                         <div class="col-lg-10">
-                            <input name="cat_icon" type="text" value="{{ $single_product -> icon }}" class="form-control">  
+                            <input name="cat_icon_img" type="text" value="{{ $single_product -> icon }}" class="form-control">  
                         </div>
                     </div>
 
-                    
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <img style="max-height:150px;" src="{{ URL::to('') }}/public/media/products/cat/{{ $single_product -> icon_img }}" alt="">
+                            <input type="hidden" name="old_img" value="{{ $single_product -> icon_img }}" class="form-control">   
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">New Category Image</label>
+                        <div class="col-lg-10">
+                            <input type="file" name="new_img" class="form-control">  
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
                             <div class="checkbox i-checks">
