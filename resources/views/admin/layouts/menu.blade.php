@@ -35,6 +35,10 @@
                                 <li>
                                     <a href="{{ route('product-category.index') }}" class="auto"> <i class="i i-dot"></i> <span>Products Category</span> </a>
                                 </li>
+
+                                <li>
+                                    <a href="{{ route('product-subcategory.index') }}" class="auto"> <i class="i i-dot"></i> <span>Products Sub Category</span> </a>
+                                </li>
                                 
                                 
                             </ul>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
 Route::group(['namespace' => 'Frontend'], function(){
 
 	// For Blog Page 
@@ -52,7 +53,7 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::resource('product','ProductManagement');
 	Route::resource('product-category','ProductCatManagement');
 	Route::resource('product-brand','ProductBrandManagement');
-	Route::resource('product-tag','ProductTagManagement');
+	Route::resource('product-subcategory','SubcategoryController');
 
 	// Homepage Routes  
 	Route::resource('home-slider','SliderManagement');
