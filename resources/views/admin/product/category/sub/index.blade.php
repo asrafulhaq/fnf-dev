@@ -37,7 +37,11 @@
                                 <td>{{ $sub -> parent }}</td>
                                 <td>{{ $sub -> status }}</td>
                                 <td>
-                                    <a class="btn btn-danger btn-sm" href="">Delete</a>
+                                    <form style="display: inline-block;" action="{{ route('product-subcategory.destroy', $sub -> id ) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger" type="submit" >Delete</button>
+                                </form>
                                 </td>
                             </tr>
 
