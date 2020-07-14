@@ -3,4 +3,5 @@
 <script src="{{ asset('public/frontend/assets/js/popper.min.js')}}"></script>
 <script src="{{ asset('public/frontend/assets/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('public/frontend/assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('public/frontend/assets/js/jquery.star-rating-svg.js')}}"></script>
 <script src="{{ asset('public/frontend/assets/js/custom.js')}}"></script>

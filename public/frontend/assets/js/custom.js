@@ -215,6 +215,18 @@
 
 
 
+		// Rating 
+		$(".my-rating").starRating({
+		    starSize: 30,
+		    totalStars : 5,
+		    initialRating : 3,
+		    minRating : 0 
+		});
+
+
+
+
+
 		
 
 	});

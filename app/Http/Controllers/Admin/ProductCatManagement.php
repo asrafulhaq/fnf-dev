@@ -69,6 +69,8 @@ class ProductCatManagement extends Controller
 
            $img -> move(public_path('media/products/cat'), $unique_name);
 
+        }else {
+            $unique_name = '';
         }
 
 

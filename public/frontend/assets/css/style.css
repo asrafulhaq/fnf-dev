@@ -888,3 +888,91 @@ input:focus {
 	font-family: h-b;
 }
 
+
+.in-body {
+	background-color: #e9e9e9;
+}
+
+.invoice  {
+	padding: 50px;
+	background-color: #FFF;
+	min-height:700px;
+}
+
+
+.invoice h2{
+	font-family: h-b;
+}
+
+.invoice .fnf-info img{
+	width: 200px;
+	display: block;
+	margin: auto;
+}
+
+.invoice h2 {
+	text-transform: uppercase;
+	font-size: 24px;
+}
+
+.user-info h3 {
+	text-align: right;
+	font-size: 18px;
+	font-family: h-b;
+} 
+
+.user-info h5 {
+	text-align: right;
+	font-size: 14px;
+	font-family: h-l;
+}
+
+.invoice table tr th {
+	font-family: h-b;
+}
+
+.invoice table tr td {
+	font-family: h-l;
+	font-size: 14px;
+}
+
+.invoice table tbody tr:last-child {
+	background: transparent;
+	border-top: 1px solid #000;
+}
+
+.my-rating svg {
+	width: 30px;
+	display: inline-block;
+	text-align: center;
+}
+
+ul#cat-menu-all li {
+	position: relative;
+}
+
+ul#cat-menu-all li ul {
+	background-color: #FFF;
+	position: absolute;
+	left: 103%;
+	top: 0px;
+	z-index:9999999;
+	width: 200px;
+	border-radius: 5px;
+	display: none;
+	border: 1px solid #ccc;
+}
+
+ul#cat-menu-all li ul li {
+	border-bottom: 1px dotted #ccc;
+}
+
+ul#cat-menu-all li:hover ul {
+	display: block;
+}
+
+.categories ul li img {
+	width: 30px !important;
+}
+
+

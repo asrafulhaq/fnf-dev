@@ -113,6 +113,6 @@ class SubcategoryController extends Controller
         $data  = Subcategory::find($id);
          $data -> delete();
 
-         return redirect() -> back() -> with('success', 'Subcategory Deleted successfull');
+         return redirect() -> back() -> with('success', 'Subcategory Deleted successfull'); 
     }
 }

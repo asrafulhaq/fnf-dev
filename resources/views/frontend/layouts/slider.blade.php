@@ -23,10 +23,10 @@
         <div class="row">
           <div class="col-md-3">
             <div class="categories">
-              <ul class="list-group">
+              <ul id="cat-menu-all" class="list-group">
 
                 @php
-                  $all_cat = App\Model\Category::latest() -> take(7) -> get();;
+                  $all_cat = App\Model\Category::latest() -> take(7) -> get();
                 @endphp
                 @foreach( $all_cat as $cat )
                 <li class="list-group-item">
@@ -44,6 +44,20 @@
                     
                     {{ $cat -> name }}
                   </a>
+                      
+                      @php
+                        $all_sub_cat = App\Model\Subcategory::where('parent', $cat -> slug ) -> get();
+                      @endphp
+                    
+                      @if( count($all_sub_cat) > 0 )
+                      <ul class="shadow">
+
+                        @foreach( $all_sub_cat as $sub )
+                        <li><a href="#">{{ $sub -> name }}</a></li>
+                        @endforeach
+                      </ul>
+                      @endif
+
                 </li>
                 @endforeach
                 <li class="list-group-item"><a href=""> <i class="fas fa-utensils"></i></i> <strong> All Categories </strong> </a></li>

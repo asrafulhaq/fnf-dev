@@ -117,9 +117,20 @@ Route::group(['namespace' => 'Admin'], function(){
 	Route::resource('dashboard', 'DashboardManagement');
 
 
+
+	// fnf Admins
+	// Route::get('admin', '');
+
+
 });
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::get('invoice', function(){
+	return view('frontend.invoice');
+});

@@ -25,11 +25,10 @@
 								
 								<span id="testid"></span>
 
-
+								
 								<div class="product-title">
 									<h2 id="pp-name"></h2>
 								</div>
-
 								<div class="pricing">
 									<h3 id="pp-price" class="price"></h3>
 								</div>
@@ -49,7 +48,7 @@
 									</form>
 
 								</div>
-
+								
 								<div class="stock-status">
 									Stock : <span>In Stock</span>
 								</div>

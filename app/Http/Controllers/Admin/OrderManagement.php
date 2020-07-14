@@ -53,7 +53,7 @@ class OrderManagement extends Controller
         ]);
 
 
-        Order::create([
+        $data = Order::create([
             'name'              => $request -> customer_name,
             'cell'              => $request -> customer_cell,
             'email'             => $request -> customer_email,
@@ -66,7 +66,14 @@ class OrderManagement extends Controller
             'customer_ip'      => request() -> ip(),
         ]);
 
-        return redirect() -> back() -> with('success','Thanks for your Order');
+
+
+        $cart_data = Cart::where('user_ip', request() -> ip() ) -> latest() -> get();
+        return view('frontend.invoice', [
+            'order_data'      => $data,
+            'cart_data'      => $cart_data,
+            
+        ]);
 
 
     }
