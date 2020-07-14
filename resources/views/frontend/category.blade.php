@@ -32,10 +32,10 @@
 							<h4><a href="#">{{ $pro -> name }}</a></h4>
 							<div class="price-amount">
 								@if( $pro -> sale_price == NULL ) 
-									<span class="product-price">$ {{ $pro -> regular_price }}</span>
+									<span class="product-price">BDT  {{ $pro -> regular_price }}</span>
 								@else 
-									<del>${{ $pro -> regular_price }}</del>
-									<span class="product-price">$ {{ $pro -> sale_price }} </span>
+									<del>BDT {{ $pro -> regular_price }}</del>
+									<span class="product-price">BDT {{ $pro -> sale_price }} </span>
 								@endif
 								
 							</div>
