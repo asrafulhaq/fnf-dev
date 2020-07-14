@@ -2,53 +2,59 @@
 @section('main-content')
 @include("frontend.layouts.slider")
 
+
+
 @php
 	$home_page_data  = App\Model\HomePage::find(1);
 @endphp
+
+
 <!-- Best Sell section  -->
-<section class="best-seller">
+<section class="best-seller ">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="section-title">Best Sellers</h2>
+				<h2 class="section-title">Goror Hat</h2>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
 
-				<div id="product-slider-best-seller" class="products-slider owl-carousel">
-		
+				<div id="product-slider-water-fish" class="products-slider owl-carousel">
+
 					
+					@php
+						$fwf_data   = App\Model\Category::where('slug','freshwater-fish') -> first();
+					@endphp
 
-					@foreach( $products as $pro )
-		
-						<div pid="{{ $pro -> id }}" class="product-items">
-							<div class="product-featured">
-								<a href="#"><img class="w-100" style="" src="{{ URL::to('') }}/public/media/products/{{  $pro -> product_image }}" alt=""></a>
+					@foreach( $fwf_data -> products as $data )
+					<div pid="{{ $data -> id }}" class="product-items">
+						<div class="product-featured">
+							<a href="#"><img class="w-100" style="" src="{{ URL::to('') }}/public/media/products/{{  $data -> product_image }}" alt=""></a>
 
-								<ul>
-									<li><a href="#"><i class="ti-bag"></i></a></li>
-									<li><a href="#"><i class="ti-eye"></i></a></li>
-									<li><a href="#"><i class="ti-heart"></i></a></li>
-								</ul>
-							</div>
-							<div class="product-info">
-								<h4><a href="#">{{ $pro -> name }}</a></h4>
-								<div class="price-amount">
-									@if( $pro -> sale_price == NULL) 
-										<span class="product-price">$ {{ $pro -> regular_price }}</span>
-									@else 
-										<del>${{ $pro -> regular_price }}</del>
-										<span class="product-price">${{ $pro -> sale_price }}</span>
-									@endif
-									
-								</div>
+							<ul>
+								<li><a href="#"><i class="ti-bag"></i></a></li>
+								<li><a href="#"><i class="ti-eye"></i></a></li>
+								<li><a href="#"><i class="ti-heart"></i></a></li>
+							</ul>
+						</div>
+						<div class="product-info">
+
+							<h4><a href="#">{{ $data -> name }}</a></h4>
+							<div class="price-amount">
+								@if( $data -> sale_price == null ) 
+									<span class="product-price">$ {{ $data -> regular_price }}</span>
+								@else 
+									<del>${{ $data -> sale_price }}</del>
+									<span class="product-price">$ {{ $data -> regular_price }}</span>
+								@endif
+								
 							</div>
 						</div>
-
+					</div>
 					@endforeach
 
-
+					
 
 				</div>
 
@@ -112,6 +118,10 @@
 		</div>
 	</div>
 </section>
+
+
+
+
 
 <!-- Best Sell section  -->
 <section class="best-seller ">

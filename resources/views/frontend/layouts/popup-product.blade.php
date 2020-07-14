@@ -74,11 +74,11 @@
 										<div class="product-featured">
 											<a href="#"><img class="w-100" src="{{ URL::to('') }}/public/media/products/{{  $pro -> product_image }}" alt=""></a>
 
-											<ul>
+											{{-- <ul>
 												<li><a href="#"><i class="ti-bag"></i></a></li>
 												<li><a href="#"><i class="ti-eye"></i></a></li>
 												<li><a href="#"><i class="ti-heart"></i></a></li>
-											</ul>
+											</ul> --}}
 										</div>
 										<div class="product-info">
 											<h4><a href="#">{{  $pro -> name }}</a></h4>
