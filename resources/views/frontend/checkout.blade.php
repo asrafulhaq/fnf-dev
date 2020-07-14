@@ -98,7 +98,7 @@
 							<br>
 							
 							<ul>
-								<li><label for="cod"> <input id="cod" name="payment" value="Cash on delivery" type="radio"> Cash on Delivery</label></li>
+								<li><label for="cod"> <input id="cod" name="payment" checked value="Cash on delivery" type="radio"> Cash on Delivery</label></li>
 								<li><label for="br"> <input id="br" name="payment" value="bKash / Rocket" type="radio"> bKash / Roket </label></li>
 								<li><label for="card"> <input  id="card" name="payment" type="radio"> Visa / Master - Card </label></li>
 							</ul>
