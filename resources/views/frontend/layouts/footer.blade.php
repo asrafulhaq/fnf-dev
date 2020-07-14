@@ -69,10 +69,10 @@
                 <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/rocket.webp" alt="">
                 <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/visa.webp" alt="">
                 <br>
-                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/city-bank.webp" alt="">
-                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/amex-card.webp" alt="">
-                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/dmoney.webp" alt="">
-                <img src="{{ URL::to('/') }}public/frontend/assets/media/img/payments/master-card.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/city-bank.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/amex-card.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/dmoney.webp" alt="">
+                <img src="{{ URL::to('/') }}/public/frontend/assets/media/img/payments/master-card.webp" alt="">
               </div>
             </div>
           </div>

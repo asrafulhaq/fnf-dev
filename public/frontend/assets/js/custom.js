@@ -100,12 +100,12 @@
 					$("#pp-desc").html(data.desc);
 					$("#pp-photo").attr('src', 'public/media/products/' + data.product_image);
 					
-					
+					$('#p-modal').modal('show');
 					
 				}
 			});
 
-			$('#p-modal').modal('show');
+			// $('#p-modal').modal('show');
 
 			return false;
 		});
@@ -179,8 +179,7 @@
 		// Product Carrt Page pop up dynamic
 		$(document).on('click','#cart-item',function(e){
 			
-			let pid = $(this).attr('pid');
-			
+			let pid = $(this).attr('pid');	
 			
 
 			$.ajax({
@@ -214,14 +213,46 @@
 		});
 
 
+		// Related Products Clicks 
+		$(document).on('click','#related_product', function(event){
+			event.preventDefault();
 
-		// Rating 
-		$(".my-rating").starRating({
-		    starSize: 30,
-		    totalStars : 5,
-		    initialRating : 3,
-		    minRating : 0 
+			let pid = $(this).attr('product_id');
+
+
+
+			$.ajax({
+				url : "popup-product/" + pid,
+				dataType : "json",
+				success : function(data){
+					
+					// Data transfer to POPUP 
+					
+					$("input#ppidid").val(pid);
+					$("#pp-name").html(data.name);
+
+					// Sale price manage 
+					if(data.sale_price == null){
+						$('h3#pp-price').html(data.regular_price);
+					}else{
+						$('h3#pp-price').html("<del>$" + data.regular_price +  "</del>$" + data.sale_price);
+					}
+					
+					$("#pp-desc").html(data.desc);
+					$("#pp-photo").attr('src', 'public/media/products/' + data.product_image);
+					
+					
+					
+				}
+			});
+
+
+
 		});
+
+
+
+
 
 
 

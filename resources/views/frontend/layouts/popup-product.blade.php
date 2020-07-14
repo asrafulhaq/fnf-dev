@@ -70,7 +70,7 @@
 									@endphp
 
 									@foreach($products as $pro ) 
-									<div class="product-items">
+									<div id="related_product" product_id="{{ $pro -> id }}" class="product-items">
 										<div class="product-featured">
 											<a href="#"><img class="w-100" src="{{ URL::to('') }}/public/media/products/{{  $pro -> product_image }}" alt=""></a>
 

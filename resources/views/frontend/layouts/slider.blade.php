@@ -26,14 +26,14 @@
               <ul id="cat-menu-all" class="list-group">
 
                 @php
-                  $all_cat = App\Model\Category::latest() -> take(7) -> get();
+                  $all_cat = App\Model\Category::take(7) -> get();
                 @endphp
                 @foreach( $all_cat as $cat )
                 <li class="list-group-item">
                   <a href="{{ route('category.search', $cat -> slug ) }}"> 
 
                     
-                    @if( isset($cat -> icon_img) )
+                    @if( !empty($cat -> icon_img) )
                     
                     <img style="width:50px;" src="{{ URL::to('') }}/public/media/products/cat/{{ $cat -> icon_img }}" alt="">
 
