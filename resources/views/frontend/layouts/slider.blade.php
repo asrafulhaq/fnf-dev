@@ -60,7 +60,33 @@
 
                 </li>
                 @endforeach
-                <li class="list-group-item"><a href=""> <i class="fas fa-utensils"></i></i> <strong> All Categories </strong> </a></li>
+                <li class="list-group-item"><a href=""> <i class="fas fa-utensils"></i></i> <strong> All Categories </strong> </a>
+                    
+                    <ul>
+                      @php
+
+                        $all_cat = App\Model\Category::all();
+                        $i = 1;
+                        foreach($all_cat as $allcat) :
+                          $i++;
+                          if($i > 7) :
+                            
+                      @endphp
+                      <li><a href="{{ route('category.search', $cat -> slug ) }}">{{ $allcat -> name }}</a></li>
+                      @endif
+                      @endforeach
+
+
+
+                    </ul>
+
+                    
+                    
+
+
+
+
+                </li>
 
               </ul>
             </div>
